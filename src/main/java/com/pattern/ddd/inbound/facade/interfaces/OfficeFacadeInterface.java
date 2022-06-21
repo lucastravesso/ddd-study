@@ -1,4 +1,4 @@
-package com.pattern.ddd.inbound.facade;
+package com.pattern.ddd.inbound.facade.interfaces;
 
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,7 @@ public interface OfficeFacadeInterface {
 
     OfficeDTO officeDelete(OfficeDTO officeDTO);
 
-    OfficeDTO officeFindById(OfficeDTO officeDTO);
+    OfficeDTO officeFindById(Integer officeId);
 
     Page<OfficeDTO> officeFindAll(Pageable pageable);
 }

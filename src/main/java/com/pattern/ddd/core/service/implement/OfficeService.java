@@ -38,8 +38,8 @@ public class OfficeService implements OfficeServiceInterface {
     }
 
     @Override
-    public Office officeFindById(Office office) {
-        return officeRepository.findById(office.getId()).get();
+    public Office officeFindById(Integer officeId) {
+        return officeRepository.findById(officeId).get();
     }
 
     @Override

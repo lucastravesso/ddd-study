@@ -5,11 +5,12 @@ import com.pattern.ddd.core.entity.User;
 import com.pattern.ddd.core.repository.OfficeRepository;
 import com.pattern.ddd.core.repository.UserRepository;
 import com.pattern.ddd.core.service.UserServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
-import java.util.Objects;
+
 
 @Service
 public class UserService implements UserServiceInterface {
@@ -22,7 +23,6 @@ public class UserService implements UserServiceInterface {
         this.userRepository = userRepository;
         this.officeRepository = officeRepository;
     }
-
 
     @Override
     public User userCreate(User user, Office office) {

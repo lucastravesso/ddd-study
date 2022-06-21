@@ -1,4 +1,4 @@
-package com.pattern.ddd.inbound.facade;
+package com.pattern.ddd.inbound.facade.interfaces;
 
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;

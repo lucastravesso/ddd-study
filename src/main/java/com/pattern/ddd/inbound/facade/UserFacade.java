@@ -6,6 +6,7 @@ import com.pattern.ddd.core.service.UserServiceInterface;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 
+import com.pattern.ddd.inbound.facade.interfaces.UserFacadeInterface;
 import com.pattern.ddd.inbound.facade.mapper.OfficeMapper;
 import com.pattern.ddd.inbound.facade.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class UserFacade implements UserFacadeInterface {
     UserMapper userMapper;
     OfficeMapper officeMapper;
 
+    @Autowired
     public UserFacade(UserServiceInterface userService) {
         this.userService = userService;
     }

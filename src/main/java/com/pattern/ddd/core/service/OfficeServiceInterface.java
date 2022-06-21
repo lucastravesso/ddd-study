@@ -9,6 +9,6 @@ public interface OfficeServiceInterface {
     Office officeCreate(Office office);
     Office officeUpdate(Office office);
     Office officeDelete(Office office);
-    Office officeFindById(Office office);
+    Office officeFindById(Integer id);
     Page<Office> officeFindAll(Pageable pageable);
 }
