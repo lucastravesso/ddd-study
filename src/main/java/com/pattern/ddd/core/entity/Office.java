@@ -1,13 +1,11 @@
-package com.pattern.ddd.entity;
+package com.pattern.ddd.core.entity;
 
-import com.pattern.ddd.enums.OfficeList;
+import com.pattern.ddd.core.enums.OfficeList;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Data
 @AllArgsConstructor
@@ -17,5 +15,6 @@ public class Office extends DomainEntity{
 
     private OfficeList officeName;
     private Double officeSalary;
+
 
 }

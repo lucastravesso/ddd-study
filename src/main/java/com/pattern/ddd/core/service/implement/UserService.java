@@ -1,14 +1,15 @@
-package com.pattern.ddd.service.implement;
+package com.pattern.ddd.core.service.implement;
 
-import com.pattern.ddd.entity.Office;
-import com.pattern.ddd.entity.User;
-import com.pattern.ddd.repository.OfficeRepository;
-import com.pattern.ddd.repository.UserRepository;
-import com.pattern.ddd.service.UserServiceInterface;
+import com.pattern.ddd.core.entity.Office;
+import com.pattern.ddd.core.entity.User;
+import com.pattern.ddd.core.repository.OfficeRepository;
+import com.pattern.ddd.core.repository.UserRepository;
+import com.pattern.ddd.core.service.UserServiceInterface;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
+import java.util.Objects;
 
 @Service
 public class UserService implements UserServiceInterface {
@@ -24,28 +25,29 @@ public class UserService implements UserServiceInterface {
 
 
     @Override
-    public User userCreate(User userDTO, Office officeDTO) {
-        userDTO.setIsActive(true);
-        userDTO.setUserOffice(officeRepository.findById(officeDTO.getId()).get());
-        userRepository.saveAndFlush(userDTO);
+    public User userCreate(User user, Office office) {
+        user.setIsActive(true);
+        user.setUserOffice(officeRepository.findById(office.getId()).get());
+        userRepository.saveAndFlush(user);
 
-        return userDTO;
+        return user;
     }
 
     @Override
-    public User userUpdate(User userDTO) {
-        return null;
+    public User userUpdate(User user) {
+        userRepository.saveAndFlush(user);
+        return user;
     }
 
     @Override
-    public User userDelete(User userDTO) {
-        userDTO.setIsActive(true);
-        userRepository.save(userDTO);
-        Office office = officeRepository.findById(userDTO.getUserOffice().getId()).get();
+    public User userDelete(User user) {
+        user.setIsActive(true);
+        userRepository.save(user);
+        Office office = officeRepository.findById(user.getUserOffice().getId()).get();
         office.setIsActive(false);
         officeRepository.saveAndFlush(office);
 
-        return userDTO;
+        return user;
     }
 
     @Override

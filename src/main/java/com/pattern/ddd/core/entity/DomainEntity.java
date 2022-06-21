@@ -1,4 +1,4 @@
-package com.pattern.ddd.entity;
+package com.pattern.ddd.core.entity;
 
 import lombok.Data;
 

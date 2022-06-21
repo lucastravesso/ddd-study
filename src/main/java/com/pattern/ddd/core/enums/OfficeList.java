@@ -1,4 +1,4 @@
-package com.pattern.ddd.enums;
+package com.pattern.ddd.core.enums;
 
 public enum OfficeList {
     OWNER,EMPLOYEE,DIRECTOR,MANAGER

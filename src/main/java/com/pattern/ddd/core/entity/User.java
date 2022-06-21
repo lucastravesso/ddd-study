@@ -1,4 +1,4 @@
-package com.pattern.ddd.entity;
+package com.pattern.ddd.core.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +22,6 @@ public class User  extends DomainEntity{
     @OneToOne
     @JoinColumn(name = "user_office_id")
     private Office userOffice;
+
+
 }

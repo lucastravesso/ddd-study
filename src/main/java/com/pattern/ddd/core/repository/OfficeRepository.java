@@ -1,6 +1,6 @@
-package com.pattern.ddd.repository;
+package com.pattern.ddd.core.repository;
 
-import com.pattern.ddd.entity.Office;
+import com.pattern.ddd.core.entity.Office;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
