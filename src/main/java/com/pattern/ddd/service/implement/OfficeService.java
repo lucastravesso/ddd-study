@@ -44,6 +44,6 @@ public class OfficeService implements OfficeServiceInterface {
 
     @Override
     public Page<Office> officeFindAll(Pageable pageable) {
-        return null;
+        return officeRepository.findAll(pageable);
     }
 }

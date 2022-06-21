@@ -39,16 +39,28 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public User userDelete(User userDTO) {
-        return null;
+        userDTO.setIsActive(true);
+        userRepository.save(userDTO);
+        Office office = officeRepository.findById(userDTO.getUserOffice().getId()).get();
+        office.setIsActive(false);
+        officeRepository.saveAndFlush(office);
+
+        return userDTO;
     }
 
     @Override
     public User userFindById(Integer userId) {
-        return null;
+        User user = userRepository.findById(userId).get();
+        user.setUserOffice(officeRepository.findById(user.getUserOffice().getId()).get());
+        return user;
     }
 
     @Override
     public Page<User> userFindAll(Pageable pageable) {
-        return null;
+        Page<User> users =  userRepository.findAll(pageable);
+        users.forEach(u -> {
+            u.setUserOffice(officeRepository.findById(u.getUserOffice().getId()).get());
+        });
+        return users;
     }
 }
