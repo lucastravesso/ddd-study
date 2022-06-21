@@ -5,21 +5,19 @@ import com.pattern.ddd.core.entity.User;
 import com.pattern.ddd.core.repository.OfficeRepository;
 import com.pattern.ddd.core.repository.UserRepository;
 import com.pattern.ddd.core.service.UserServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
 
 
 @Service
 public class UserService implements UserServiceInterface {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    private OfficeRepository officeRepository;
+    private final OfficeRepository officeRepository;
 
-    public UserService(UserRepository userRepository, OfficeRepository officeRepository){
+    public UserService(UserRepository userRepository, OfficeRepository officeRepository) {
         this.userRepository = userRepository;
         this.officeRepository = officeRepository;
     }
@@ -59,7 +57,7 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public Page<User> userFindAll(Pageable pageable) {
-        Page<User> users =  userRepository.findAll(pageable);
+        Page<User> users = userRepository.findAll(pageable);
         users.forEach(u -> {
             u.setUserOffice(officeRepository.findById(u.getUserOffice().getId()).get());
         });

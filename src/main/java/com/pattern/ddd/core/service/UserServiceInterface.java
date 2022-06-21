@@ -3,8 +3,7 @@ package com.pattern.ddd.core.service;
 import com.pattern.ddd.core.entity.Office;
 import com.pattern.ddd.core.entity.User;
 import org.springframework.data.domain.Page;
-
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 
 public interface UserServiceInterface {
 
