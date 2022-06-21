@@ -3,8 +3,8 @@ package com.pattern.ddd.inbound.facade.interfaces;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
 
 public interface UserFacadeInterface {
 

@@ -9,5 +9,4 @@ import java.awt.print.Pageable;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
-    Page<User> findAll(Pageable pageable);
 }

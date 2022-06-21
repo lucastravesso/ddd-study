@@ -11,21 +11,22 @@ import com.pattern.ddd.inbound.facade.mapper.OfficeMapper;
 import com.pattern.ddd.inbound.facade.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-
-import java.awt.print.Pageable;
 import java.util.Objects;
 
 @Component
 public class UserFacade implements UserFacadeInterface {
 
-    final UserServiceInterface userService;
-    UserMapper userMapper;
-    OfficeMapper officeMapper;
+    private final UserServiceInterface userService;
+    private final UserMapper userMapper;
+    private final OfficeMapper officeMapper;
 
     @Autowired
-    public UserFacade(UserServiceInterface userService) {
+    public UserFacade(UserServiceInterface userService, UserMapper userMapper, OfficeMapper officeMapper) {
         this.userService = userService;
+        this.userMapper = userMapper;
+        this.officeMapper = officeMapper;
     }
 
     @Override
