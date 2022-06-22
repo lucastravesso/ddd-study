@@ -1,19 +1,21 @@
 package com.pattern.ddd;
 
+import com.pattern.ddd.core.config.CoreConfig;
+import com.pattern.ddd.inbound.config.InboundConfig;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.pattern.ddd.core.service"})
-@EnableJpaRepositories(basePackages = "com.pattern.ddd.core.repository")
-public class DddApplication {
-
+public class DddApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DddApplication.class, args);
+		SpringApplication.run(new Class[]{
+				DddApplication.class,
+				CoreConfig.class,
+				InboundConfig.class
+		}, args);
+
 	}
 
 }

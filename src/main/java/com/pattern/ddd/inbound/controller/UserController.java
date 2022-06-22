@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping(value ="user")
 public class UserController {
-
 
     private final UserFacadeInterface userFacade;
 
@@ -25,7 +25,7 @@ public class UserController {
         this.pageable = pageable;
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO, @RequestBody OfficeDTO officeDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(userFacade.create(userDTO, officeDTO));
     }
