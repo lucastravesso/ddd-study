@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserServiceInterface {
 
-    User userCreate(User user, Office office);
+    User userCreate(User user);
     User userUpdate(User user);
     User userDelete(User user);
     User userFindById(Integer userId);

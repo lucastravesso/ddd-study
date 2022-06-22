@@ -23,9 +23,9 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public User userCreate(User user, Office office) {
+    public User userCreate(User user) {
         user.setIsActive(true);
-        user.setUserOffice(officeRepository.findById(office.getId()).get());
+        user.setUserOffice(officeRepository.findById(user.getUserOffice().getId()).get());
         userRepository.saveAndFlush(user);
 
         return user;

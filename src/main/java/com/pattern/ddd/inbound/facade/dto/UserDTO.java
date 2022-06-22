@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDTO extends DTOEntity{
+public class UserDTO {
 
-    private String firstName;
-    private String lastName;
+    private String userFirstName;
+    private String userLastName;
     private String email;
     private LocalDateTime bornDate;
     private OfficeDTO officeDTO;

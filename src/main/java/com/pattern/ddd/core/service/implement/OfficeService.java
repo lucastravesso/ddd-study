@@ -5,7 +5,9 @@ import com.pattern.ddd.core.repository.OfficeRepository;
 import com.pattern.ddd.core.service.OfficeServiceInterface;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OfficeService implements OfficeServiceInterface {
 
     private OfficeRepository officeRepository;

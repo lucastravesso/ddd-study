@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserFacadeInterface {
 
-    UserDTO create(UserDTO userDTO, OfficeDTO officeDTO);
+    UserDTO create(UserDTO userDTO);
 
     UserDTO update(UserDTO userDTO);
 

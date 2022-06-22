@@ -7,20 +7,22 @@ import com.pattern.ddd.inbound.facade.interfaces.OfficeFacadeInterface;
 import com.pattern.ddd.inbound.facade.mapper.OfficeMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
 
 import java.util.Objects;
 
-@Service
+@Component
 public class OfficeFacade implements OfficeFacadeInterface {
 
     private final OfficeServiceInterface officeService;
 
     private final OfficeMapper officeMapper;
 
-    public OfficeFacade(OfficeServiceInterface officeService, OfficeMapper officeMapper) {
-        this.officeService = officeService;
+    public OfficeFacade(OfficeMapper officeMapper, OfficeServiceInterface officeService) {
+
         this.officeMapper = officeMapper;
+        this.officeService = officeService;
     }
 
     @Override

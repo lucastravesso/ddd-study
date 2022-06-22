@@ -17,21 +17,18 @@ public class UserController {
 
     private final UserFacadeInterface userFacade;
 
-    private final Pageable pageable;
-
     @Autowired
-    public UserController(UserFacadeInterface userFacade, Pageable pageable) {
+    public UserController(UserFacadeInterface userFacade) {
         this.userFacade = userFacade;
-        this.pageable = pageable;
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO, @RequestBody OfficeDTO officeDTO){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userFacade.create(userDTO, officeDTO));
+    @PostMapping
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
+        return ResponseEntity.status(HttpStatus.CREATED).body(userFacade.create(userDTO));
     }
 
     @GetMapping
-    public ResponseEntity<Page<UserDTO>> findAll(){
+    public ResponseEntity<Page<UserDTO>> findAll(Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(userFacade.userFindAll(pageable));
     }
 }

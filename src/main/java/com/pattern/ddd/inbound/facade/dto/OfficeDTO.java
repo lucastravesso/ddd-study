@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OfficeDTO extends DTOEntity{
+public class OfficeDTO {
 
+    private Integer id;
     private OfficeList officeName;
     private Double officeSalary;
 }

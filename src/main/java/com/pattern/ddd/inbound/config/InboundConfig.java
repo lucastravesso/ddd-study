@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackageClasses = {InboundConfig.class, OfficeServiceInterface.class})
+@ComponentScan(basePackages = {"com.pattern.ddd.inbound"})
 public class InboundConfig {
 
 

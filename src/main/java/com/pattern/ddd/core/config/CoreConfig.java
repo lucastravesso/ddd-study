@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan(basePackageClasses = {CoreConfig.class})
+@ComponentScan(basePackages = {"com.pattern.ddd.core"})
 @EnableJpaRepositories(basePackages = "com.pattern.ddd.core.repository")
 public class CoreConfig {
 

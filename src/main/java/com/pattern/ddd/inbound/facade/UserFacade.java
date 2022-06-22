@@ -12,11 +12,12 @@ import com.pattern.ddd.inbound.facade.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+
 
 import java.util.Objects;
 
-@Service
+@Component
 public class UserFacade implements UserFacadeInterface {
 
     private final UserServiceInterface userService;
@@ -31,15 +32,11 @@ public class UserFacade implements UserFacadeInterface {
     }
 
     @Override
-    public UserDTO create(UserDTO userDTO, OfficeDTO officeDTO) {
+    public UserDTO create(UserDTO userDTO) {
         if(Objects.nonNull(userDTO)) {
             User user = userMapper.convertToEntity(userDTO);
-            if (Objects.nonNull(officeDTO)) {
-                Office office = officeMapper.convertToEntity(officeDTO);
-                userService.userCreate(user, office);
-                return userMapper.convertToDTO(user);
-            }
-            return null;
+            userService.userCreate(user);
+            return userMapper.convertToDTO(user);
         }
         return null;
     }
