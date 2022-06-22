@@ -8,9 +8,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface OfficeMapper {
 
-
     OfficeDTO convertToDTO(Office office);
-
     Office convertToEntity(OfficeDTO officeDTO);
 
 }

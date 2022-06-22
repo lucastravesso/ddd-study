@@ -8,9 +8,9 @@ public interface OfficeFacadeInterface {
 
     OfficeDTO officeCreate(OfficeDTO officeDTO);
 
-    OfficeDTO officeUpdate(OfficeDTO officeDTO);
+    OfficeDTO officeUpdate(OfficeDTO officeDTO, Integer id);
 
-    OfficeDTO officeDelete(OfficeDTO officeDTO);
+    OfficeDTO officeDelete(Integer id);
 
     OfficeDTO officeFindById(Integer officeId);
 
