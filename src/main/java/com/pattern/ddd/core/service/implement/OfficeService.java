@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class OfficeService implements OfficeServiceInterface {
 
@@ -27,12 +29,12 @@ public class OfficeService implements OfficeServiceInterface {
     @Override
     public Office officeUpdate(Office office) {
         officeRepository.saveAndFlush(office);
-
         return office;
     }
 
     @Override
-    public Office officeDelete(Office office) {
+    public Office officeDelete(Integer id) {
+        Office office = officeRepository.findById(id).get();
         office.setIsActive(false);
         officeRepository.saveAndFlush(office);
 
@@ -41,7 +43,8 @@ public class OfficeService implements OfficeServiceInterface {
 
     @Override
     public Office officeFindById(Integer officeId) {
-        return officeRepository.findById(officeId).get();
+        Optional<Office> office = officeRepository.findById(officeId);
+        return office.get();
     }
 
     @Override

@@ -25,8 +25,24 @@ public class OfficeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(officeFacade.officeCreate(officeDTO));
     }
 
-    @GetMapping
+    @GetMapping(value = "/search")
     public ResponseEntity<Page<OfficeDTO>> findAll(Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(officeFacade.officeFindAll(pageable));
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<OfficeDTO> deleteById(@PathVariable("id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(officeFacade.officeDelete(id));
+    }
+
+    @GetMapping(value = "/search/{id}")
+    public ResponseEntity<OfficeDTO> findOneById(@PathVariable("id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(officeFacade.officeFindById(id));
+    }
+
+    @PutMapping(value = "/update/{id}")
+    public ResponseEntity<OfficeDTO> updateOnById(@RequestBody OfficeDTO officeDTO, @PathVariable("id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(officeFacade.officeUpdate(officeDTO, id));
+    }
+
 }

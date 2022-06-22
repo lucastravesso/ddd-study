@@ -36,9 +36,10 @@ public class OfficeFacade implements OfficeFacadeInterface {
     }
 
     @Override
-    public OfficeDTO officeUpdate(OfficeDTO officeDTO) {
+    public OfficeDTO officeUpdate(OfficeDTO officeDTO, Integer id) {
         if(Objects.nonNull(officeDTO)){
             Office office = officeMapper.convertToEntity(officeDTO);
+            office.setId(officeService.officeFindById(id).getId());
             officeService.officeUpdate(office);
             return officeMapper.convertToDTO(office);
         }
@@ -46,19 +47,18 @@ public class OfficeFacade implements OfficeFacadeInterface {
     }
 
     @Override
-    public OfficeDTO officeDelete(OfficeDTO officeDTO) {
-        if(Objects.nonNull(officeDTO)){
-            Office office = officeMapper.convertToEntity(officeDTO);
-            officeService.officeDelete(office);
-            return officeMapper.convertToDTO(office);
+    public OfficeDTO officeDelete(Integer id) {
+        if(id != null){
+            return officeMapper.convertToDTO(officeService.officeDelete(id));
         }
         return null;
     }
 
     @Override
     public OfficeDTO officeFindById(Integer officeId) {
-        if(officeId == null){
-            return officeMapper.convertToDTO(officeService.officeFindById(officeId));
+        if(officeId != null){
+            OfficeDTO officeDTO = officeMapper.convertToDTO(officeService.officeFindById(officeId));
+            return officeDTO;
         }
         return null;
     }
