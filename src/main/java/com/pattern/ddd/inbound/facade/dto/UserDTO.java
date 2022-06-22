@@ -18,5 +18,5 @@ public class UserDTO {
     private String userLastName;
     private String email;
     private LocalDateTime bornDate;
-    private OfficeDTO officeDTO;
+    private OfficeDTO userOffice;
 }
