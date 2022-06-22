@@ -9,11 +9,12 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
-
+    @Mapping(source = "userEmail", target = "email")
+    @Mapping(source = "userBornDate", target = "bornDate")
     UserDTO convertToDTO(User user);
 
     @Mapping(source = "email", target = "userEmail")
+    @Mapping(source = "bornDate", target = "userBornDate")
     User convertToEntity(UserDTO userDTO);
 
 }

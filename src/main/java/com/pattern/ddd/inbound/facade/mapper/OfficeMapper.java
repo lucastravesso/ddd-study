@@ -8,7 +8,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface OfficeMapper {
 
-    OfficeMapper INSTANCE = Mappers.getMapper(OfficeMapper.class);
 
     OfficeDTO convertToDTO(Office office);
 
