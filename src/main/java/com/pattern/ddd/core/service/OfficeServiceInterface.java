@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 public interface OfficeServiceInterface {
 
     Office officeCreate(Office office);
-    Office officeUpdate(Office office);
+    Office officeUpdate(Office office, Integer id);
     Office officeDelete(Integer id);
     Office officeFindById(Integer id);
     Page<Office> officeFindAll(Pageable pageable);

@@ -22,60 +22,35 @@ public class UserFacade implements UserFacadeInterface {
 
     private final UserServiceInterface userService;
     private final UserMapper userMapper;
-    private final OfficeMapper officeMapper;
 
     @Autowired
-    public UserFacade(UserServiceInterface userService, UserMapper userMapper, OfficeMapper officeMapper) {
+    public UserFacade(UserServiceInterface userService, UserMapper userMapper) {
         this.userService = userService;
         this.userMapper = userMapper;
-        this.officeMapper = officeMapper;
     }
 
     @Override
     public UserDTO create(UserDTO userDTO) {
-        if(Objects.nonNull(userDTO)) {
-            User user = userMapper.convertToEntity(userDTO);
-            userService.userCreate(user);
-            return userMapper.convertToDTO(user);
-        }
-        return null;
+        return userMapper.convertToDTO(userService.userCreate(userMapper.convertToEntity(userDTO)));
     }
 
     @Override
     public UserDTO update(UserDTO userDTO) {
-        if(Objects.nonNull(userDTO)) {
-            User user = userMapper.convertToEntity(userDTO);
-            userService.userUpdate(user);
-            return userMapper.convertToDTO(user);
-        }
-        return null;
+        return userMapper.convertToDTO(userService.userUpdate(userMapper.convertToEntity(userDTO)));
     }
 
     @Override
     public UserDTO userDelete(UserDTO userDTO) {
-        if(Objects.nonNull(userDTO)){
-            User user = userMapper.convertToEntity(userDTO);
-            userService.userDelete(user);
-            return userMapper.convertToDTO(user);
-        }
-        return null;
+        return userMapper.convertToDTO(userService.userDelete(userMapper.convertToEntity(userDTO)));
     }
 
     @Override
     public UserDTO userFindById(Integer userId) {
-        UserDTO userDTO = userMapper.convertToDTO(userService.userFindById(userId));
-        if(Objects.nonNull(userDTO)){
-            return userDTO;
-        }
-        return null;
+        return userMapper.convertToDTO(userService.userFindById(userId));
     }
 
     @Override
     public Page<UserDTO> userFindAll(Pageable pageable) {
-        Page<User> users = userService.userFindAll(pageable);
-        if(!users.isEmpty()){
-            return users.map(userMapper::convertToDTO);
-        }
-        return null;
+        return userService.userFindAll(pageable).map(userMapper::convertToDTO);
     }
 }

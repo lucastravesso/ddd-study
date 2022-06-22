@@ -20,47 +20,28 @@ public class OfficeFacade implements OfficeFacadeInterface {
     private final OfficeMapper officeMapper;
 
     public OfficeFacade(OfficeMapper officeMapper, OfficeServiceInterface officeService) {
-
         this.officeMapper = officeMapper;
         this.officeService = officeService;
     }
 
     @Override
     public OfficeDTO officeCreate(OfficeDTO officeDTO) {
-        if(Objects.nonNull(officeDTO)){
-            Office office = officeMapper.convertToEntity(officeDTO);
-            officeService.officeCreate(office);
-            return officeMapper.convertToDTO(office);
-        }
-        return null;
+        return officeMapper.convertToDTO(officeService.officeCreate(officeMapper.convertToEntity(officeDTO)));
     }
 
     @Override
     public OfficeDTO officeUpdate(OfficeDTO officeDTO, Integer id) {
-        if(Objects.nonNull(officeDTO)){
-            Office office = officeMapper.convertToEntity(officeDTO);
-            office.setId(officeService.officeFindById(id).getId());
-            officeService.officeUpdate(office);
-            return officeMapper.convertToDTO(office);
-        }
-        return null;
+        return officeMapper.convertToDTO(officeService.officeUpdate(officeMapper.convertToEntity(officeDTO), id));
     }
 
     @Override
     public OfficeDTO officeDelete(Integer id) {
-        if(id != null){
-            return officeMapper.convertToDTO(officeService.officeDelete(id));
-        }
-        return null;
+        return officeMapper.convertToDTO(officeService.officeDelete(id));
     }
 
     @Override
     public OfficeDTO officeFindById(Integer officeId) {
-        if(officeId != null){
-            OfficeDTO officeDTO = officeMapper.convertToDTO(officeService.officeFindById(officeId));
-            return officeDTO;
-        }
-        return null;
+        return officeMapper.convertToDTO(officeService.officeFindById(officeId));
     }
 
     @Override

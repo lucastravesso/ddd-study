@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class OfficeService implements OfficeServiceInterface {
 
-    private OfficeRepository officeRepository;
+    private final OfficeRepository officeRepository;
 
     public OfficeService(OfficeRepository officeRepository){
         this.officeRepository = officeRepository;
@@ -27,24 +27,21 @@ public class OfficeService implements OfficeServiceInterface {
     }
 
     @Override
-    public Office officeUpdate(Office office) {
+    public Office officeUpdate(Office office, Integer id) {
         officeRepository.saveAndFlush(office);
         return office;
     }
 
     @Override
     public Office officeDelete(Integer id) {
-        Office office = officeRepository.findById(id).get();
+        Office office = officeRepository.findById(id).orElse(new Office());
         office.setIsActive(false);
-        officeRepository.saveAndFlush(office);
-
-        return office;
+        return officeRepository.saveAndFlush(office);
     }
 
     @Override
     public Office officeFindById(Integer officeId) {
-        Optional<Office> office = officeRepository.findById(officeId);
-        return office.get();
+        return officeRepository.findById(officeId).orElse(null);
     }
 
     @Override
