@@ -1,5 +1,6 @@
 package com.pattern.ddd.inbound.controller;
 
+import com.pattern.ddd.core.entity.User;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 import com.pattern.ddd.inbound.facade.interfaces.UserFacadeInterface;
@@ -30,5 +31,20 @@ public class UserController {
     @GetMapping
     public ResponseEntity<Page<UserDTO>> findAll(Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(userFacade.userFindAll(pageable));
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<UserDTO> findOneById(@PathVariable("id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(userFacade.userFindById(id));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<UserDTO> deleteById(@PathVariable("id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(userFacade.userDelete(id));
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<UserDTO> updateById(@RequestBody UserDTO user, @PathVariable("id") Integer id){
+        return  ResponseEntity.status(HttpStatus.OK).body(userFacade.update(user, id));
     }
 }

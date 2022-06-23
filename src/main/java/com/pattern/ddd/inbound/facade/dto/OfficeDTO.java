@@ -15,4 +15,5 @@ public class OfficeDTO {
     private Integer id;
     private OfficeList officeName;
     private Double officeSalary;
+    private Boolean isActive;
 }

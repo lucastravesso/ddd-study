@@ -35,13 +35,13 @@ public class UserFacade implements UserFacadeInterface {
     }
 
     @Override
-    public UserDTO update(UserDTO userDTO) {
-        return userMapper.convertToDTO(userService.userUpdate(userMapper.convertToEntity(userDTO)));
+    public UserDTO update(UserDTO userDTO, Integer id) {
+        return userMapper.convertToDTO(userService.userUpdate(userMapper.convertToEntity(userDTO),id));
     }
 
     @Override
-    public UserDTO userDelete(UserDTO userDTO) {
-        return userMapper.convertToDTO(userService.userDelete(userMapper.convertToEntity(userDTO)));
+    public UserDTO userDelete(Integer id) {
+        return userMapper.convertToDTO(userService.userDelete(id));
     }
 
     @Override

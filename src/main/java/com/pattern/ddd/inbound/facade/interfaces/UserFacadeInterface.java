@@ -10,9 +10,9 @@ public interface UserFacadeInterface {
 
     UserDTO create(UserDTO userDTO);
 
-    UserDTO update(UserDTO userDTO);
+    UserDTO update(UserDTO userDTO, Integer id);
 
-    UserDTO userDelete(UserDTO user);
+    UserDTO userDelete(Integer id);
 
     UserDTO userFindById(Integer userId);
 
