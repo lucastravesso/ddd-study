@@ -1,49 +1,21 @@
 package com.pattern.ddd.inbound.facade;
 
-import com.pattern.ddd.core.service.UserServiceInterface;
+import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
-
-import com.pattern.ddd.inbound.facade.mapper.interfaces.UserFacadeInterface;
-import com.pattern.ddd.inbound.facade.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Component;
 
-@Component
-public class UserFacade implements UserFacadeInterface {
 
-    private final UserServiceInterface userService;
-    private final UserMapper userMapper;
+public interface UserFacade {
 
-    @Autowired
-    public UserFacade(UserServiceInterface userService, UserMapper userMapper) {
-        this.userService = userService;
-        this.userMapper = userMapper;
-    }
+    UserDTO create(UserDTO userDTO);
 
-    @Override
-    public UserDTO create(UserDTO userDTO) {
-        return userMapper.convertToDTO(userService.userCreate(userMapper.convertToEntity(userDTO)));
-    }
+    UserDTO update(UserDTO userDTO, Integer id);
 
-    @Override
-    public UserDTO update(UserDTO userDTO, Integer id) {
-        return userMapper.convertToDTO(userService.userUpdate(userMapper.convertToEntity(userDTO),id));
-    }
+    UserDTO userDelete(Integer id);
 
-    @Override
-    public UserDTO userDelete(Integer id) {
-        return userMapper.convertToDTO(userService.userDelete(id));
-    }
+    UserDTO userFindById(Integer userId);
 
-    @Override
-    public UserDTO userFindById(Integer userId) {
-        return userMapper.convertToDTO(userService.userFindById(userId));
-    }
+    Page<UserDTO> userFindAll(Pageable pageable);
 
-    @Override
-    public Page<UserDTO> userFindAll(Pageable pageable) {
-        return userService.userFindAll(pageable).map(userMapper::convertToDTO);
-    }
 }

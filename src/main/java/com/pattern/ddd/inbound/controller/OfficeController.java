@@ -1,7 +1,7 @@
 package com.pattern.ddd.inbound.controller;
 
+import com.pattern.ddd.inbound.facade.OfficeFacade;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
-import com.pattern.ddd.inbound.facade.mapper.interfaces.OfficeFacadeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "office")
 public class OfficeController {
 
-    private final OfficeFacadeInterface officeFacade;
+    private final OfficeFacade officeFacade;
 
     @Autowired
-    public OfficeController(OfficeFacadeInterface officeFacade) {
+    public OfficeController(OfficeFacade officeFacade) {
         this.officeFacade = officeFacade;
     }
 

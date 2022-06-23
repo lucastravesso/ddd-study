@@ -5,7 +5,7 @@ import com.pattern.ddd.core.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface UserServiceInterface {
+public interface UserService {
 
     User userCreate(User user);
     User userUpdate(User user, Integer id);

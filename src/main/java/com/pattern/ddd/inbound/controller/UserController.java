@@ -1,7 +1,7 @@
 package com.pattern.ddd.inbound.controller;
 
+import com.pattern.ddd.inbound.facade.UserFacade;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
-import com.pattern.ddd.inbound.facade.mapper.interfaces.UserFacadeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value ="user")
 public class UserController {
 
-    private final UserFacadeInterface userFacade;
+    private final UserFacade userFacade;
 
     @Autowired
-    public UserController(UserFacadeInterface userFacade) {
+    public UserController(UserFacade userFacade) {
         this.userFacade = userFacade;
     }
 

@@ -2,7 +2,7 @@ package com.pattern.ddd.core.service.implement;
 
 import com.pattern.ddd.core.entity.Office;
 import com.pattern.ddd.core.repository.OfficeRepository;
-import com.pattern.ddd.core.service.OfficeServiceInterface;
+import com.pattern.ddd.core.service.OfficeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class OfficeService implements OfficeServiceInterface {
+public class OfficeServiceImpl implements OfficeService {
 
     private final OfficeRepository officeRepository;
 
-    public OfficeService(OfficeRepository officeRepository){
+    public OfficeServiceImpl(OfficeRepository officeRepository){
         this.officeRepository = officeRepository;
     }
 
