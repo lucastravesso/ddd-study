@@ -1,14 +1,11 @@
 package com.pattern.ddd.inbound.controller;
 
-import com.pattern.ddd.core.entity.User;
-import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
-import com.pattern.ddd.inbound.facade.interfaces.UserFacadeInterface;
+import com.pattern.ddd.inbound.facade.mapper.interfaces.UserFacadeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

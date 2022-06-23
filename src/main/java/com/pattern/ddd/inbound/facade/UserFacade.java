@@ -1,21 +1,14 @@
 package com.pattern.ddd.inbound.facade;
 
-import com.pattern.ddd.core.entity.Office;
-import com.pattern.ddd.core.entity.User;
 import com.pattern.ddd.core.service.UserServiceInterface;
-import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 
-import com.pattern.ddd.inbound.facade.interfaces.UserFacadeInterface;
-import com.pattern.ddd.inbound.facade.mapper.OfficeMapper;
+import com.pattern.ddd.inbound.facade.mapper.interfaces.UserFacadeInterface;
 import com.pattern.ddd.inbound.facade.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-
-
-import java.util.Objects;
 
 @Component
 public class UserFacade implements UserFacadeInterface {

@@ -2,6 +2,7 @@ package com.pattern.ddd;
 
 import com.pattern.ddd.core.config.CoreConfig;
 import com.pattern.ddd.inbound.config.InboundConfig;
+import com.pattern.ddd.outbound.config.OutboundConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -13,7 +14,8 @@ public class DddApplication extends SpringBootServletInitializer {
 		SpringApplication.run(new Class[]{
 				DddApplication.class,
 				CoreConfig.class,
-				InboundConfig.class
+				InboundConfig.class,
+				OutboundConfig.class
 		}, args);
 
 	}

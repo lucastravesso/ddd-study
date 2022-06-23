@@ -1,4 +1,4 @@
-package com.pattern.ddd.inbound.facade.interfaces;
+package com.pattern.ddd.inbound.facade.mapper.interfaces;
 
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import org.springframework.data.domain.Page;

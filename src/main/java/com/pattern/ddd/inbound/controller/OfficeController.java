@@ -1,7 +1,7 @@
 package com.pattern.ddd.inbound.controller;
 
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
-import com.pattern.ddd.inbound.facade.interfaces.OfficeFacadeInterface;
+import com.pattern.ddd.inbound.facade.mapper.interfaces.OfficeFacadeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

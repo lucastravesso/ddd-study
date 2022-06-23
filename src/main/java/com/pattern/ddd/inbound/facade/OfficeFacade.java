@@ -1,16 +1,12 @@
 package com.pattern.ddd.inbound.facade;
 
-import com.pattern.ddd.core.entity.Office;
 import com.pattern.ddd.core.service.OfficeServiceInterface;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
-import com.pattern.ddd.inbound.facade.interfaces.OfficeFacadeInterface;
+import com.pattern.ddd.inbound.facade.mapper.interfaces.OfficeFacadeInterface;
 import com.pattern.ddd.inbound.facade.mapper.OfficeMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-
-
-import java.util.Objects;
 
 @Component
 public class OfficeFacade implements OfficeFacadeInterface {
