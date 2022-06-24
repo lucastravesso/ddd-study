@@ -1,8 +1,8 @@
-package com.pattern.ddd.outbound.addressapi.outbound.implement;
+package com.pattern.ddd.outbound.addressapi.service.implement;
 
 import com.pattern.ddd.outbound.addressapi.client.AddressClient;
-import com.pattern.ddd.outbound.addressapi.client.dto.AddressDTO;
-import com.pattern.ddd.outbound.addressapi.outbound.AddressService;
+import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
+import com.pattern.ddd.outbound.addressapi.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

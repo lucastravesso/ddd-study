@@ -1,7 +1,7 @@
 package com.pattern.ddd.inbound.controller;
 
 import com.pattern.ddd.inbound.facade.AddressFacade;
-import com.pattern.ddd.outbound.addressapi.client.dto.AddressDTO;
+import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

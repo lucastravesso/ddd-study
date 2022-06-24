@@ -1,6 +1,6 @@
 package com.pattern.ddd.outbound.addressapi.client;
 
-import com.pattern.ddd.outbound.addressapi.client.dto.AddressDTO;
+import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

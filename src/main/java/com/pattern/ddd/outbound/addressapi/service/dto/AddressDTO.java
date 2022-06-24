@@ -1,4 +1,4 @@
-package com.pattern.ddd.outbound.addressapi.client.dto;
+package com.pattern.ddd.outbound.addressapi.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
