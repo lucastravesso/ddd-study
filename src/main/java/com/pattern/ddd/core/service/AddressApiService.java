@@ -1,14 +1,14 @@
 package com.pattern.ddd.core.service;
 
-import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
+import com.pattern.ddd.core.entity.Address;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface AddressApiService {
 
-    AddressDTO create(AddressDTO addressDTO);
-    AddressDTO update(AddressDTO addressDTO, Long id);
-    AddressDTO delete(Long id);
-    AddressDTO findOne(Long id);
-    Page<AddressDTO> findAll(Pageable pageable);
+    Address create(Address addressDTO);
+    Address update(Address addressDTO, Long id);
+    Address delete(Long id);
+    Address findOne(Long id);
+    Page<Address> findAll(Pageable pageable);
 }

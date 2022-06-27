@@ -1,5 +1,6 @@
 package com.pattern.ddd.core.service;
 
+import com.pattern.ddd.core.entity.Address;
 import com.pattern.ddd.core.entity.Office;
 import com.pattern.ddd.core.entity.User;
 import org.springframework.data.domain.Page;

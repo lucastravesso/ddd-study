@@ -3,6 +3,7 @@ package com.pattern.ddd.core.service.implement;
 import com.pattern.ddd.core.entity.User;
 import com.pattern.ddd.core.repository.OfficeRepository;
 import com.pattern.ddd.core.repository.UserRepository;
+import com.pattern.ddd.core.service.AddressApiService;
 import com.pattern.ddd.core.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,11 +22,17 @@ public class UserServiceImpl implements UserService {
 
     private final OfficeServiceImpl officeService;
 
-    public UserServiceImpl(UserRepository userRepository, OfficeRepository officeRepository, OfficeServiceImpl officeService) {
+    private final AddressApiService addressApiService;
+
+
+    public UserServiceImpl(UserRepository userRepository, OfficeRepository officeRepository, OfficeServiceImpl officeService, AddressApiService addressApiService ) {
         this.userRepository = userRepository;
         this.officeRepository = officeRepository;
         this.officeService = officeService;
+        this.addressApiService = addressApiService;
     }
+
+
 
     @Override
     public User userCreate(User user) {
@@ -88,4 +95,5 @@ public class UserServiceImpl implements UserService {
         });
         return users;
     }
+
 }

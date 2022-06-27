@@ -1,7 +1,7 @@
 package com.pattern.ddd.outbound.addressapi.service.implement;
 
+import com.pattern.ddd.core.entity.Address;
 import com.pattern.ddd.outbound.addressapi.client.AddressClient;
-import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
 import com.pattern.ddd.outbound.addressapi.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,27 +20,27 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public AddressDTO create(AddressDTO addressDTO) {
-        return addressClient.create(addressDTO);
+    public Address create(Address address) {
+        return addressClient.create(address);
     }
 
     @Override
-    public AddressDTO update(AddressDTO addressDTO, Long id) {
-        return addressClient.update(addressDTO, id);
+    public Address update(Address address, Long id) {
+        return addressClient.update(address, id);
     }
 
     @Override
-    public AddressDTO delete(Long id) {
+    public Address delete(Long id) {
         return addressClient.delete(id);
     }
 
     @Override
-    public AddressDTO findOne(Long id) {
+    public Address findOne(Long id) {
         return addressClient.findOne(id);
     }
 
     @Override
-    public Page<AddressDTO> findAll(Pageable pageable) {
+    public Page<Address> findAll(Pageable pageable) {
         return addressClient.findAll(pageable);
     }
 }

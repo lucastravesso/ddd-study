@@ -1,5 +1,6 @@
 package com.pattern.ddd.inbound.facade;
 
+import com.pattern.ddd.inbound.facade.dto.AddressDTO;
 import com.pattern.ddd.inbound.facade.dto.OfficeDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 import org.springframework.data.domain.Page;

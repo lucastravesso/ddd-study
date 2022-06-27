@@ -1,5 +1,6 @@
 package com.pattern.ddd.outbound.addressapi.client;
 
+import com.pattern.ddd.core.entity.Address;
 import com.pattern.ddd.outbound.addressapi.service.dto.AddressDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
@@ -10,17 +11,17 @@ import org.springframework.web.bind.annotation.*;
 public interface AddressClient {
 
     @PostMapping(value = "/new")
-    AddressDTO create(@RequestBody AddressDTO addressDTO);
+    Address create(@RequestBody Address address);
 
     @PutMapping(value = "/update/{id}")
-    AddressDTO update(@RequestBody AddressDTO addressDTO, @PathVariable("id") Long id);
+    Address update(@RequestBody Address address, @PathVariable("id") Long id);
 
     @DeleteMapping(value = "/delete/{id}")
-    AddressDTO delete(@PathVariable("id") Long id);
+    Address delete(@PathVariable("id") Long id);
 
     @GetMapping(value = "/find/{id}")
-    AddressDTO findOne(@PathVariable("id") Long id);
+    Address findOne(@PathVariable("id") Long id);
 
     @GetMapping(value = "/find")
-    Page<AddressDTO> findAll(Pageable pageable);
+    Page<Address> findAll(Pageable pageable);
 }

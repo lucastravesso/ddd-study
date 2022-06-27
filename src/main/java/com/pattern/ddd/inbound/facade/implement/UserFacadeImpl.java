@@ -3,6 +3,7 @@ package com.pattern.ddd.inbound.facade.implement;
 import com.pattern.ddd.core.service.UserService;
 
 import com.pattern.ddd.inbound.facade.UserFacade;
+import com.pattern.ddd.inbound.facade.dto.AddressDTO;
 import com.pattern.ddd.inbound.facade.dto.UserDTO;
 
 import com.pattern.ddd.inbound.facade.mapper.UserMapper;
@@ -47,4 +48,5 @@ public class UserFacadeImpl implements UserFacade {
     public Page<UserDTO> userFindAll(Pageable pageable) {
         return userService.userFindAll(pageable).map(userMapper::convertToDTO);
     }
+
 }
