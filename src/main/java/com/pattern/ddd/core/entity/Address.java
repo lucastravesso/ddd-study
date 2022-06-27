@@ -22,6 +22,7 @@ public class Address{
     private String numero;
     private Boolean isActive;
 
+    @ManyToOne
     private User user;
 
 }
